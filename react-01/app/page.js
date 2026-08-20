@@ -1,9 +1,8 @@
-import styles from "./page.module.css";
-
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>Olá, Turma!</main>
+    <div>
+      <h1>Olá, Turma!</h1>
+      <p>Exemplo de um parágrafo!</p>
     </div>
   );
 }
