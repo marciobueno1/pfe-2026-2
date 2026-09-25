@@ -10,6 +10,8 @@ export default function Home() {
         <p>Exemplo de um parágrafo!</p>
         <hr />
         <Link href="/jogoDados">Jogo de Dados</Link>
+        <br />
+        <Link href="/listaTarefas">Lista de Tarefas</Link>
         <hr />
         <MyButton />
         <MyButton />
