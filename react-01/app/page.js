@@ -1,8 +1,12 @@
+"use client";
+
 import { MyButton } from "@/components/MyButton";
+import { useTarefaStore } from "@/zustand";
 import Link from "next/link";
 import React from "react";
 
 export default function Home() {
+  const filtrarConcluidas = useTarefaStore((state) => state.filtrarConcluidas);
   return (
     <React.StrictMode>
       <div>
@@ -16,18 +20,17 @@ export default function Home() {
         <MyButton />
         <MyButton />
         <hr />
-        <Cup />
-        <Cup />
-        <Cup />
+        Filtro de tarefas concluídas está ativado:{" "}
+        {filtrarConcluidas ? "sim" : "não"}
+        <hr />
+        <Cup guest={1} />
+        <Cup guest={2} />
+        <Cup guest={3} />
       </div>
     </React.StrictMode>
   );
 }
 
-let guest = 0;
-
-function Cup() {
-  // Bad: changing a preexisting variable!
-  guest = guest + 1;
+function Cup({ guest }) {
   return <h2>Tea cup for guest #{guest}</h2>;
 }

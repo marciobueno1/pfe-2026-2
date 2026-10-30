@@ -1,6 +1,7 @@
 "use client";
 
 import { addTarefas, getTarefas } from "@/api";
+import { useTarefaStore } from "@/zustand";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
 import { useState } from "react";
@@ -23,7 +24,9 @@ export default function ListaTarefas() {
   });
 
   const [descricao, setDescricao] = useState("");
-  const [filtrarConcluidas, setFiltrarConcluidas] = useState(false);
+  const { filtrarConcluidas, toggleFiltrarConcluidas } = useTarefaStore(
+    (state) => state,
+  );
   async function handleAddTarefasClick() {
     const trimmedDescricao = descricao.trim();
     if (!trimmedDescricao) {
@@ -52,7 +55,7 @@ export default function ListaTarefas() {
       <input
         type="checkbox"
         checked={filtrarConcluidas}
-        onChange={() => setFiltrarConcluidas(!filtrarConcluidas)}
+        onChange={toggleFiltrarConcluidas}
       />
       Ocultar concluídas
       <hr />
