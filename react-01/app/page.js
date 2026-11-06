@@ -17,6 +17,9 @@ export default function Home() {
         <br />
         <Link href="/listaTarefas">Lista de Tarefas</Link>
         <hr />
+        <h2>Autenticação</h2>
+        <Link href="/auth/signup">Cadastrar Usuário</Link>
+        <hr />
         <MyButton />
         <MyButton />
         <hr />
