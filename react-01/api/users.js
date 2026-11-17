@@ -17,6 +17,30 @@ export async function signingUp({ username, password, email }) {
     { username: username, password: password, email: email },
     { headers: { ...headerJson, ...headerRevocableSession } },
   );
-  console.log("response.data", response.data);
+  return response.data;
+}
+
+export async function loggingOut({ sessionToken }) {
+  const response = await instance.post("/logout", {
+    headers: { "X-Parse-Session-Token": sessionToken },
+  });
+  return response.data;
+}
+
+export async function loggingIn({ username, password }) {
+  const response = await instance.post(
+    "/login",
+    { username: username, password: password },
+    { headers: { ...headerJson, ...headerRevocableSession } },
+  );
+  return response.data;
+}
+
+export async function requestingPasswordReset({ email }) {
+  const response = await instance.post(
+    "/requestPasswordReset",
+    { email: email },
+    { headers: headerJson },
+  );
   return response.data;
 }

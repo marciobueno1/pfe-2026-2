@@ -14,3 +14,16 @@ export const useTarefaStore = create(
     },
   ),
 );
+
+export const useUserStore = create(
+  persist(
+    (set) => ({
+      user: null,
+      setUser: (user) => set((state) => ({ user: user })),
+    }),
+    {
+      name: "user-storage",
+      storage: createJSONStorage(() => sessionStorage),
+    },
+  ),
+);

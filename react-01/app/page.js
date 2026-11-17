@@ -19,6 +19,14 @@ export default function Home() {
         <hr />
         <h2>Autenticação</h2>
         <Link href="/auth/signup">Cadastrar Usuário</Link>
+        <br />
+        <Link href="/auth/profile">Usuário logado</Link>
+        <br />
+        <Link href="/auth/login">Fazer login</Link>
+        <br />
+        <Link href="/auth/logout">Fazer logout</Link>
+        <br />
+        <Link href="/auth/reset">Esqueci minha senha</Link>
         <hr />
         <MyButton />
         <MyButton />
